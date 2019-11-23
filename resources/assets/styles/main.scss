@@ -13,13 +13,14 @@
 
 /** Import theme styles */
 @import "common/global";
+@import "font/fontawesome";
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
 @import "components/wp-classes";
 @import "layouts/header";
-@import "layouts/header/**/*";
-@import "sections/**/*";
+@import "./sections/**/*";
+@import "layouts/navbar";
 @import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";

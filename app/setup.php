@@ -11,9 +11,10 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
-    wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
-
+    wp_enqueue_style('mirage/main.css', asset_path('styles/main.css'), false, null);
+    wp_enqueue_script('mirage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+//    wp_enqueue_script('jquery-ui-core');
+    wp_enqueue_script('jquery-effects-core');
     if (is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
@@ -23,16 +24,6 @@ add_action('wp_enqueue_scripts', function () {
  * Theme setup
  */
 add_action('after_setup_theme', function () {
-    /**
-     * Enable features from Soil when plugin is activated
-     * @link https://roots.io/plugins/soil/
-     */
-    add_theme_support('soil-clean-up');
-    add_theme_support('soil-jquery-cdn');
-    add_theme_support('soil-nav-walker');
-    add_theme_support('soil-nice-search');
-    add_theme_support('soil-relative-urls');
-
     /**
      * Enable plugins to manage the document title
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#title-tag
@@ -44,7 +35,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'mirage')
     ]);
 
     /**
@@ -83,11 +74,11 @@ add_action('widgets_init', function () {
         'after_title'   => '</h3>'
     ];
     register_sidebar([
-        'name'          => __('Primary', 'sage'),
+        'name'          => __('Primary', 'mirage'),
         'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
-        'name'          => __('Footer', 'sage'),
+        'name'          => __('Footer', 'mirage'),
         'id'            => 'sidebar-footer'
     ] + $config);
 });

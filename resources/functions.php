@@ -9,13 +9,14 @@ use Roots\Sage\Container;
 
 /**
  * Helper function for prettying up errors
+ *
  * @param string $message
  * @param string $subtitle
  * @param string $title
  */
 $sage_error = function ($message, $subtitle = '', $title = '') {
-    $title = $title ?: __('Sage &rsaquo; Error', 'sage');
-    $footer = '<a href="https://roots.io/sage/docs/">roots.io/sage/docs/</a>';
+    $title   = $title ?: __('mirage &rsaquo; Error', 'mirage');
+    $footer  = '';
     $message = "<h1>{$title}<br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
     wp_die($message, $title);
 };
@@ -24,24 +25,24 @@ $sage_error = function ($message, $subtitle = '', $title = '') {
  * Ensure compatible version of PHP is used
  */
 if (version_compare('7.1', phpversion(), '>=')) {
-    $sage_error(__('You must be using PHP 7.1 or greater.', 'sage'), __('Invalid PHP version', 'sage'));
+    $sage_error(__('You must be using PHP 7.1 or greater.', 'mirage'), __('Invalid PHP version', 'mirage'));
 }
 
 /**
  * Ensure compatible version of WordPress is used
  */
 if (version_compare('4.7.0', get_bloginfo('version'), '>=')) {
-    $sage_error(__('You must be using WordPress 4.7.0 or greater.', 'sage'), __('Invalid WordPress version', 'sage'));
+    $sage_error(__('You must be using WordPress 4.7.0 or greater.', 'mirage'), __('Invalid WordPress version', 'mirage'));
 }
 
 /**
  * Ensure dependencies are loaded
  */
 if (!class_exists('Roots\\Sage\\Container')) {
-    if (!file_exists($composer = __DIR__.'/../vendor/autoload.php')) {
+    if (!file_exists($composer = __DIR__ . '/../vendor/autoload.php')) {
         $sage_error(
-            __('You must run <code>composer install</code> from the Sage directory.', 'sage'),
-            __('Autoloader not found.', 'sage')
+            __('You must run <code>composer install</code> from the mirage directory.', 'mirage'),
+            __('Autoloader not found.', 'mirage')
         );
     }
     require_once $composer;
@@ -85,8 +86,8 @@ array_map(
 Container::getInstance()
     ->bindIf('config', function () {
         return new Config([
-            'assets' => require dirname(__DIR__).'/config/assets.php',
-            'theme' => require dirname(__DIR__).'/config/theme.php',
-            'view' => require dirname(__DIR__).'/config/view.php',
+            'assets' => require dirname(__DIR__) . '/config/assets.php',
+            'theme'  => require dirname(__DIR__) . '/config/theme.php',
+            'view'   => require dirname(__DIR__) . '/config/view.php',
         ]);
     }, true);
