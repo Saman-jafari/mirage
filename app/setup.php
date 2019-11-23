@@ -13,7 +13,6 @@ use Roots\Sage\Template\BladeProvider;
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('mirage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('mirage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
-//    wp_enqueue_script('jquery-ui-core');
     wp_enqueue_script('jquery-effects-core');
     if (is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
