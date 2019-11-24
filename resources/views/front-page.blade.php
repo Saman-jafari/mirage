@@ -2,7 +2,7 @@
 @section('content')
 
     <!-- About Section -->
-    <section class="page-section bg-primary" id="about">
+    <section class="page-section bg-primary brand" id="about">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
