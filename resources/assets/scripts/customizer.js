@@ -9,3 +9,8 @@ wp.customize('showcase_heading', (value) => {
 wp.customize('showcase_text', (value) => {
   value.bind(to => $('.masthead p').text(to));
 });
+wp.customize('showcase_btn', (value) => {
+  value.bind(to => {
+    $('.masthead a').text(to);
+  });
+});
