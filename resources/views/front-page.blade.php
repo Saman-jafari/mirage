@@ -2,16 +2,16 @@
 @section('content')
 
     <!-- About Section -->
-    <section class="page-section bg-primary brand" id="about">
+    <section class="page-section bg-primary brand second-section" id="about">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">We've got what you need!</h2>
+                    <h2 class="text-white mt-0">{{ get_theme_mod('secSection_heading')}}</h2>
                     <hr class="divider light my-4">
-                    <p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our
-                        open
-                        source, free to download, and easy to use themes! No strings attached!</p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+                    <p class="text-white-50 mb-4">{{ get_theme_mod('secSection_text')}}</p>
+                    <a class="btn btn-light btn-xl js-scroll-trigger"
+                       href="{{ get_theme_mod('secSection_btn_href')}}"
+                    >{{ get_theme_mod('secSection_btn')}}</a>
                 </div>
             </div>
         </div>
