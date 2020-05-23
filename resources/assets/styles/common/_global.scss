@@ -39,3 +39,10 @@ hr.light {
 .page-section {
   padding: 8rem 0;
 }
+
+//admin bar and fix header correction
+body.logged-in {
+  nav.navbar {
+    margin-top: 20px;
+  }
+}
