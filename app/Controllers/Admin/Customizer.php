@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controllers\Admin;
-
 
 use WP_Customize_Manager;
 
@@ -68,7 +66,9 @@ class Customizer
         $this->addControlAndPartial($wpCustomize, 'showcase_btn', '.masthead a', 'showcase', __('Button', 'mirage'), 3);
         $this->addControlAndPartial($wpCustomize, 'showcase_btn_href', '.masthead a[href]', 'showcase', __('Link', 'mirage'), 4, false);
     }
-    private function secondSection(WP_Customize_Manager $wpCustomize) {
+
+    private function secondSection(WP_Customize_Manager $wpCustomize)
+    {
         $wpCustomize->add_section('secondSection', [
             'title'       => __('Second Section', 'mirage'),
             'description' => sprintf(__('Option for second section', 'mirage')),

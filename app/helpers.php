@@ -2,22 +2,25 @@
 
 namespace App;
 
+use Roots\Sage\Config;
 use Roots\Sage\Container;
 
 /**
  * Get the sage container.
  *
- * @param string $abstract
- * @param array  $parameters
- * @param Container $container
+ * @param string|null        $abstract
+ * @param array<string> $parameters
+ * @param Container|null     $container
+ *
  * @return Container|mixed
  */
-function sage($abstract = null, $parameters = [], Container $container = null)
+function sage(?string $abstract = null, array $parameters = [], ?Container $container = null): Container
 {
     $container = $container ?: Container::getInstance();
     if (!$abstract) {
         return $container;
     }
+
     return $container->bound($abstract)
         ? $container->makeWith($abstract, $parameters)
         : $container->makeWith("sage.{$abstract}", $parameters);
@@ -28,11 +31,12 @@ function sage($abstract = null, $parameters = [], Container $container = null)
  *
  * If an array is passed as the key, we will assume you want to set an array of values.
  *
- * @param array|string $key
- * @param mixed $default
- * @return mixed|\Roots\Sage\Config
+ * @param array<string>|string $key
+ * @param mixed        $default
+ *
+ * @return mixed|Config
  * @copyright Taylor Otwell
- * @link https://github.com/laravel/framework/blob/c0970285/src/Illuminate/Foundation/helpers.php#L254-L265
+ * @link      https://github.com/laravel/framework/blob/c0970285/src/Illuminate/Foundation/helpers.php#L254-L265
  */
 function config($key = null, $default = null)
 {
@@ -42,23 +46,27 @@ function config($key = null, $default = null)
     if (is_array($key)) {
         return sage('config')->set($key);
     }
+
     return sage('config')->get($key, $default);
 }
 
 /**
  * @param string $file
- * @param array $data
+ * @param array  $data
+ *
  * @return string
  */
-function template($file, $data = [])
+function template(string $file,array $data = [])
 {
     return sage('blade')->render($file, $data);
 }
 
 /**
  * Retrieve path to a compiled blade view
- * @param $file
- * @param array $data
+ *
+ * @param               $file
+ * @param array<string> $data
+ *
  * @return string
  */
 function template_path($file, $data = [])
@@ -68,6 +76,7 @@ function template_path($file, $data = [])
 
 /**
  * @param $asset
+ *
  * @return string
  */
 function asset_path($asset)
@@ -77,13 +86,14 @@ function asset_path($asset)
 
 /**
  * @param string|string[] $templates Possible template files
+ *
  * @return array
  */
 function filter_templates($templates)
 {
-    $paths = apply_filters('sage/filter_templates/paths', [
+    $paths         = apply_filters('sage/filter_templates/paths', [
         'views',
-        'resources/views'
+        'resources/views',
     ]);
     $paths_pattern = "#^(" . implode('|', $paths) . ")/#";
 
@@ -119,6 +129,7 @@ function filter_templates($templates)
 
 /**
  * @param string|string[] $templates Relative path to possible template files
+ *
  * @return string Location of the template
  */
 function locate_template($templates)
@@ -134,5 +145,6 @@ function display_sidebar()
 {
     static $display;
     isset($display) || $display = apply_filters('sage/display_sidebar', false);
+
     return $display;
 }
