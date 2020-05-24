@@ -6,12 +6,15 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
-    public function siteName()
+    /**
+     * @return string
+     */
+    public function siteName(): string
     {
         return get_bloginfo('name');
     }
 
-    public static function title()
+    public static function title(): string
     {
         if (is_home()) {
             if ($home = get_option('page_for_posts', true)) {

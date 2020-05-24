@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    @include('partials.frontPage.firstSection')
     @include('partials.frontPage.secondSection')
     @include('partials.frontPage.thirdSection')
     @include('partials.frontPage.fourthSection')

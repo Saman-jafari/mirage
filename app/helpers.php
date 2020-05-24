@@ -14,7 +14,7 @@ use Roots\Sage\Container;
  *
  * @return Container|mixed
  */
-function sage(?string $abstract = null, array $parameters = [], ?Container $container = null): Container
+function sage(?string $abstract = null, array $parameters = [], ?Container $container = null)
 {
     $container = $container ?: Container::getInstance();
     if (!$abstract) {
