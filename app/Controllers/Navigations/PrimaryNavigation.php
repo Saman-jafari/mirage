@@ -3,11 +3,11 @@
 namespace App\Controllers\Navigations;
 
 use Walker_Nav_Menu;
+use WP_Post;
 
 class PrimaryNavigation extends Walker_Nav_Menu
 {
-
-    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0): void
     {
         $currentClass = ($item->current || $item->current_item_parent || $item->current_item_ancestor) ? 'active' : '';
         $hasParent    = ($item->menu_item_parent !== '0') ? 'text-dark' : '';
@@ -24,10 +24,9 @@ class PrimaryNavigation extends Walker_Nav_Menu
         } else {
             $output .= "<a class='nav-link text-dark js-scroll-trigger {$currentClass}' href='{$item->url}'>{$item->title}</a>";
         }
-
     }
 
-    public function start_lvl(&$output, $depth = 0, $args = null)
+    public function start_lvl(&$output, $depth = 0, $args = null): void
     {
         // if ($depth > 0) {
         //     $output .="<script>console.log({$depth})</script>";
@@ -37,14 +36,13 @@ class PrimaryNavigation extends Walker_Nav_Menu
         // }
     }
 
-    public function end_lvl(&$output, $depth = 0, $args = null)
+    public function end_lvl(&$output, $depth = 0, $args = null): void
     {
         $output .= '</ul>';
     }
 
-    public function end_el(&$output, $item, $depth = 0, $args = null)
+    public function end_el(&$output, $item, $depth = 0, $args = null): void
     {
-
         if (in_array('menu-item-has-children', $item->classes) && $item->menu_item_parent === '0') {
             $output .= '</li>';
         } elseif (in_array('menu-item-has-children', $item->classes)) {
@@ -58,11 +56,8 @@ class PrimaryNavigation extends Walker_Nav_Menu
         // } else {
         //     $output .= '</a>';
         // }
-
     }
-
 }
-
 /*
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

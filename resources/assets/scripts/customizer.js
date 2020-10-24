@@ -60,7 +60,7 @@ wp.customize('thirdSection_second_text', (value) => {
 });
 wp.customize('thirdSection_third_icon', (value) => {
     value.bind(to => {
-        cleanValidateClassInputs( '.third-section .third-col i', to);
+        cleanValidateClassInputs('.third-section .third-col i', to);
     });
 });
 wp.customize('thirdSection_third_heading', (value) => {
@@ -80,3 +80,43 @@ wp.customize('thirdSection_fourth_heading', (value) => {
 wp.customize('thirdSection_fourth_text', (value) => {
     value.bind(to => $('.third-section .fourth-col p').text(to));
 });
+wp.customize('fifthSection_heading', (value) => {
+    value.bind(to => $('.fifth-section h2').text(to));
+});
+wp.customize('fifthSection_text', (value) => {
+    value.bind(to => $('.fifth-section p').text(to));
+});
+wp.customize('fifthSection_btn', (value) => {
+    value.bind(to => {
+        $('.fifth-section a').text(to);
+    });
+});
+
+wp.customize('sixthSection_heading', (value) => {
+    value.bind(to => $('.sixth-section h2').text(to));
+});
+wp.customize('sixthSection_text', (value) => {
+    value.bind(to => $('.sixth-section .header-section p').text(to));
+});
+wp.customize('sixthSection_first_icon_text', (value) => {
+    value.bind(to => $('.sixth-section .first-col div').text(to));
+});
+wp.customize('sixthSection_first_icon', (value) => {
+    value.bind(
+        to => {
+            cleanValidateClassInputs('.sixth-section .first-col i', to);
+        });
+});
+wp.customize('sixthSection_second_icon_text', (value) => {
+    value.bind(to => $('.sixth-section .second-col a').text(to));
+});
+wp.customize('sixthSection_second_icon', (value) => {
+    value.bind(to => {
+        cleanValidateClassInputs('.sixth-section .second-col i', to);
+    });
+});
+// wp.customize('sixthSection_btn', (value) => {
+//     value.bind(to => {
+//         $('.sixth-section a').text(to);
+//     });
+// });

@@ -6,10 +6,6 @@ use WP_Customize_Manager;
 
 class Customizer
 {
-    public function __construct()
-    {
-    }
-
     public function init(WP_Customize_Manager $wpCustomize): void
     {
         $wpCustomize->get_setting('blogname')->transport = 'postMessage';
@@ -22,6 +18,8 @@ class Customizer
         $this->showcaseSection($wpCustomize);
         $this->secondSection($wpCustomize);
         $this->thirdSection($wpCustomize);
+        $this->fifthSection($wpCustomize);
+        $this->sixthSection($wpCustomize);
     }
 
     /**
@@ -107,6 +105,127 @@ class Customizer
         $this->addControlAndPartial($wpCustomize, 'secSection_text', '.second-section p', 'secondSection', __('Text', 'mirage'), 2);
         $this->addControlAndPartial($wpCustomize, 'secSection_btn', '.second-section a', 'secondSection', __('Button', 'mirage'), 3);
         $this->addControlAndPartial($wpCustomize, 'secSection_btn_href', '.second-section a[href]', 'secondSection', __('Link', 'mirage'), 4, false);
+    }
+
+    private function fifthSection(WP_Customize_Manager $wpCustomize): void
+    {
+        $wpCustomize->add_section('fifthSection', [
+            'title'       => __('Fifth Section', 'mirage'),
+            'description' => sprintf(__('Option for Fifth section', 'mirage')),
+            'priority'    => 134,
+        ]);
+        $wpCustomize->add_setting('fifthSection_heading', [
+            'default'   => _x('We\'ve got what you need!', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+        $wpCustomize->add_setting('fifthSection_btn', [
+            'default'   => _x('Get Started!', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+        $wpCustomize->add_setting('fifthSection_btn_href', [
+            'default'   => _x('#services', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+
+        $this->addControlAndPartial($wpCustomize, 'fifthSection_heading', '.fifth-section h2', 'fifthSection', __('Heading', 'mirage'), 1);
+        $this->addControlAndPartial($wpCustomize, 'fifthSection_btn', '.fifth-section a', 'fifthSection', __('Button', 'mirage'), 3);
+        $this->addControlAndPartial($wpCustomize, 'fifthSection_btn_href', '.fifth-section a[href]', 'fifthSection', __('Link', 'mirage'), 4, false);
+    }
+
+    private function sixthSection(WP_Customize_Manager $wpCustomize): void
+    {
+        $wpCustomize->add_section('sixthSection', [
+            'title'       => __('Sixth Section', 'mirage'),
+            'description' => sprintf(__('Option for sixth section', 'mirage')),
+            'priority'    => 134,
+        ]);
+        $wpCustomize->add_setting('sixthSection_heading', [
+            'default'   => _x('Let\'s Get In Touch!', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+        $wpCustomize->add_setting('sixthSection_text', [
+            'default'   => _x('Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon
+                    as possible!', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+        ]);
+        $wpCustomize->add_setting('sixthSection_first_icon', [
+            'default'   => _x('fas fa-phone fa-3x', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+        $wpCustomize->add_setting('sixthSection_first_icon_text', [
+            'default'   => _x('+1 (202) 555-0149', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+        $wpCustomize->add_setting('sixthSection_second_icon', [
+            'default'   => _x('fas fa-envelope fa-3x', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+        ]);
+        $wpCustomize->add_setting('sixthSection_second_icon_text', [
+            'default'   => _x('contact@yourwebsite.com', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+        $wpCustomize->add_setting('sixthSection_btn_href', [
+            'default'   => _x('mailto:contact@yourwebsite.com', 'mirage'),
+            'type'      => 'theme_mod',
+            'transport' => 'postMessage',
+
+        ]);
+
+        $this->addControlAndPartial($wpCustomize, 'sixthSection_heading', '.sixth-section h2', 'sixthSection', __('Heading', 'mirage'), 1);
+        $this->addControlAndPartial($wpCustomize, 'sixthSection_text', '.sixth-section .header-section p', 'sixthSection', __('Text', 'mirage'), 2);
+        $this->addControlAndPartial(
+            $wpCustomize,
+            'sixthSection_first_icon',
+            '.sixth-section .first-col i',
+            'sixthSection',
+            __('First Icon', 'mirage'),
+            3,
+            false
+        );
+        $this->addControlAndPartial(
+            $wpCustomize,
+            'sixthSection_first_icon_text',
+            '.sixth-section .first-col div',
+            'sixthSection',
+            __('First Icon Text', 'mirage'),
+            4,
+            false
+        );
+        $this->addControlAndPartial(
+            $wpCustomize,
+            'sixthSection_second_icon',
+            '.sixth-section .second-col i',
+            'sixthSection',
+            __('Second Icon', 'mirage'),
+            5,
+            false
+        );
+        $this->addControlAndPartial(
+            $wpCustomize,
+            'sixthSection_second_icon_text',
+            '.sixth-section .second-col a',
+            'sixthSection',
+            __('Second Icon Text', 'mirage'),
+            6,
+            false
+        );
+        $this->addControlAndPartial($wpCustomize, 'sixthSection_btn_href', '.sixth-section a[href]', 'sixthSection', __('Link', 'mirage'), 8, false);
     }
 
     /**r
