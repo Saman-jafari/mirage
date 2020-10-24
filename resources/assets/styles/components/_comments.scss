@@ -1,5 +1,15 @@
 .comment-list {
   @extend .list-unstyled;
+
+  img.avatar {
+    border-radius: 50px;
+  }
+
+  .comment {
+    background-color: $white;
+    padding: 15px;
+    margin-bottom: 16px;
+  }
 }
 
 .comment-list ol {
@@ -20,4 +30,18 @@
 .comment-form input[type="submit"] {
   @extend .btn;
   @extend .btn-secondary;
+}
+
+#comments {
+  padding: 15px;
+  background-color: $light;
+}
+
+.comment-reply-link {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.comment-edit-link {
+  @extend .text-warning;
 }

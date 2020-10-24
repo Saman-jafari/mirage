@@ -5,3 +5,9 @@
 .banner .nav a {
   @extend .nav-link;
 }
+
+.layer {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+}
