@@ -381,7 +381,7 @@
 * Add `do_action('get_header')` for WooSidebars compatibility
 * Simplify entry meta
 * Allow `get_search_form()` to be called more than once per request
-* Move plugins.js and main.js to footer
+* Move plugins.js and app.js to footer
 * JavaScript clean up (everything is now enqueued)
 * Remove conditional feed
 * Introduce `add_theme_support('bootstrap-gallery')`

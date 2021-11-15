@@ -2,8 +2,9 @@
 import 'jquery';
 
 // Import everything from autoload
-import './autoload/**/*';
-import './sections/**/*';
+import './autoload/_bootstrap';
+import './autoload/_magnific';
+import './sections/navbar';
 import './util/ease';
 import './util/imagepopup';
 

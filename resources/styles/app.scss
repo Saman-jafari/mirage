@@ -1,7 +1,8 @@
 @import "common/variables";
 
 /** Import everything from autoload */
-@import "./autoload/**/*";
+@import "./autoload/bootstrap";
+@import "./autoload/magnific";
 
 /**
  * Import npm dependencies
@@ -19,7 +20,8 @@
 @import "components/forms";
 @import "components/wp-classes";
 @import "layouts/header";
-@import "./sections/**/*";
+@import "./sections/header";
+@import "./sections/portofolio";
 @import "layouts/navbar";
 @import "layouts/sidebar";
 @import "layouts/footer";
