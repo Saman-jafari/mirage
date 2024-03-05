@@ -1,54 +1,32 @@
 {
-    "name": "roots/sage",
+    "name": "saman-jafari/mirage",
     "type": "wordpress-theme",
-    "license": "MIT",
-    "description": "WordPress starter theme with a modern development workflow",
-    "homepage": "https://roots.io/sage/",
-    "authors": [
-        {
-            "name": "Ben Word",
-            "email": "ben@benword.com",
-            "homepage": "https://github.com/retlehs"
-        },
-        {
-            "name": "Scott Walkinshaw",
-            "email": "scott.walkinshaw@gmail.com",
-            "homepage": "https://github.com/swalkinshaw"
-        },
-        {
-            "name": "QWp6t",
-            "email": "hi@qwp6t.me",
-            "homepage": "https://github.com/qwp6t"
-        }
-    ],
+    "description": "",
+    "homepage": "https://samanjafari.me/",
     "keywords": [
         "wordpress"
     ],
-    "support": {
-        "issues": "https://github.com/roots/sage/issues",
-        "forum": "https://discourse.roots.io/"
-    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
-        }
-    },
-    "require": {
-        "php": ">=8.2",
-        "illuminate/support": "^v10.30.1",
-        "larapack/dd": "^1.1"
-    },
-    "require-dev": {
-        "composer/composer": "^2"
-    },
-    "scripts": {
-        "test": [
-            "phpcs"
-        ],
-        "post-create-project-cmd": [
-            "Roots\\Sage\\Installer\\ComposerScript::postCreateProject"
+        },
+        "classmap": [
+            "app"
         ]
     },
+    "require": {
+        "php": ">=8.1",
+        "composer/installers": "~v2.2.0",
+        "illuminate/support": "^v10.47.0",
+        "illuminate/view": "^v10.46.0",
+        "illuminate/config": "^v10.47.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "composer/composer": "^2.1.6",
+        "larapack/dd": "^1.1"
+    },
+    "scripts": {},
     "config": {
         "allow-plugins": {
             "composer/installers": true,

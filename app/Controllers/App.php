@@ -2,9 +2,7 @@
 
 namespace App\Controllers;
 
-use Sober\Controller\Controller;
-
-class App extends Controller
+class App
 {
     /**
      * @return string

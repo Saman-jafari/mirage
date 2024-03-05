@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Roots\Sage\Container;
-use Roots\Sage\Assets\JsonManifest;
-use Roots\Sage\Template\Blade;
-use Roots\Sage\Template\BladeProvider;
+use App\Services\Assets\JsonManifest;
+use App\Services\Container;
+use App\Services\Template\Blade;
+use App\Services\Template\BladeProvider;
 
 /**
  * Theme assets
@@ -87,7 +87,7 @@ add_action('widgets_init', function () {
  * Note: updated value is only available for subsequently loaded views, such as partials
  */
 add_action('the_post', function ($post) {
-    sage('blade')->share('post', $post);
+    laravelIntegration('blade')->share('post', $post);
 });
 
 /**
@@ -95,28 +95,29 @@ add_action('the_post', function ($post) {
  */
 add_action('after_setup_theme', function () {
     /**
-     * Add JsonManifest to Sage container
+     * Add JsonManifest to laravelIntegration container
      */
-    sage()->singleton('sage.assets', function () {
+    laravelIntegration()->bind('laravelIntegration.assets', function () {
         return new JsonManifest(config('assets.manifest'), config('assets.uri'));
     });
 
     /**
-     * Add Blade to Sage container
+     * Add Blade to laravelIntegration container
      */
-    sage()->singleton('sage.blade', function (Container $app) {
+    laravelIntegration()->bind('laravelIntegration.blade', function (Container $app) {
         $cachePath = config('view.compiled');
         if (!file_exists($cachePath)) {
             wp_mkdir_p($cachePath);
         }
         (new BladeProvider($app))->register();
+
         return new Blade($app['view']);
     });
 
     /**
      * Create @asset() Blade directive
      */
-    sage('blade')->compiler()->directive('asset', function ($asset) {
-        return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
+    laravelIntegration('blade')->compiler()->directive('asset', function ($asset) {
+        return '<?= ' . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
