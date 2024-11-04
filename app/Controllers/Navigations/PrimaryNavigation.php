@@ -28,12 +28,6 @@ class PrimaryNavigation extends Walker_Nav_Menu
 
     public function start_lvl(&$output, $depth = 0, $args = null): void
     {
-        // if ($depth > 0) {
-        //     $output .="<script>console.log({$depth})</script>";
-        //     $output .= "<div class='dropdown-submenu' aria-labelledby='navbarDropdown'>";
-        // }else
-        //     {
-        // }
     }
 
     public function end_lvl(&$output, $depth = 0, $args = null): void
@@ -50,24 +44,5 @@ class PrimaryNavigation extends Walker_Nav_Menu
         } elseif ($item->menu_item_parent === '0') {
             $output .= '</li>';
         }
-        // elseif ($item->menu_item_parent !== '') {
-        //     $output .= '</a>';
-        //     // $output .= '</div>';
-        // } else {
-        //     $output .= '</a>';
-        // }
     }
 }
-/*
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
- */
