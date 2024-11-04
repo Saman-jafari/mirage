@@ -16,14 +16,14 @@
     },
     "require": {
         "php": ">=8.1",
-        "composer/installers": "~v2.2.0",
-        "illuminate/support": "^v10.47.0",
-        "illuminate/view": "^v10.46.0",
-        "illuminate/config": "^v10.47.0",
+        "composer/installers": "~v2.3.0",
+        "illuminate/support": "^v11.30.0",
+        "illuminate/view": "^v11.30.0",
+        "illuminate/config": "^v11.30.0",
         "ext-json": "*"
     },
     "require-dev": {
-        "composer/composer": "^2.1.6",
+        "composer/composer": "^2.8.2",
         "larapack/dd": "^1.1"
     },
     "scripts": {},
